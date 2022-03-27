@@ -1,0 +1,16 @@
+{
+  "name": "meetube",
+  "version": "1.0.0",
+  "description": "Youtube clone",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haeeema/meetube.git"
+  },
+  "author": "Hamin Park<haeeema@naver.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haeeema/meetube/issues"
+  },
+  "homepage": "https://github.com/haeeema/meetube#readme"
+}
