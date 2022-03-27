@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/haeeema/meetube/issues"
   },
-  "homepage": "https://github.com/haeeema/meetube#readme"
+  "homepage": "https://github.com/haeeema/meetube#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
