@@ -12,17 +12,22 @@ const PORT = 4000;
 const app = express();
 //1️⃣ A top level fuction exported by the express modules.
 const logger = morgan("dev");
-// "dev" is one of morgan's formats. ex)"combined", "common", ... 
+// "dev" is one of morgan's formats. ex)"combined", "common", ...
 
+app.set("view engine", "pug");
+// Express setting: Set view-engine to PUG.
+app.set("views", process.cwd() + "/src/views");
+// Express setting: change default value.
+// ❗️cwd is dir that starts node.
 app.use(logger);
-// Global Router, allow you create "global middlewares" that work any URL. 
+// Global Router, allow you create "global middlewares" that work any URL.
 // ❗️ORDER: we use global middleware first and then use app.get
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
 
-
-const handleListening = () => console.log(`✅ Server listening on port http://localhost:${PORT} 🔥`);
+const handleListening = () =>
+  console.log(`✅ Server listening on port http://localhost:${PORT} 🔥`);
 
 app.listen(PORT, handleListening);
 //2️⃣ Create PORT and callback.
