@@ -1,6 +1,7 @@
 import express from "express";
-import { join } from "../controllers/userController";
-import { trending } from "../controllers/videoController";
+import { join, login } from "../controllers/userController";
+import { trending, search } from "../controllers/videoController";
+// Export each, opening object
 
 const globalRouter = express.Router();
 // 0️⃣ Create globalRouter
@@ -8,6 +9,8 @@ const globalRouter = express.Router();
 globalRouter.get("/", trending);
 // 1️⃣ Configure globalRouter
 globalRouter.get("/join", join);
+globalRouter.get("/login", login);
+globalRouter.get("/search", search);
 
 export default globalRouter;
-// 2️⃣ export globalRouter
+// 2️⃣ Export globalRouter
