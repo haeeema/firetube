@@ -1,3 +1,5 @@
+import "./db";
+
 import express from "express";
 //0️⃣ === const express = require("express");
 import morgan from "morgan";
@@ -27,7 +29,7 @@ app.use("/videos", videoRouter);
 app.use("/users", userRouter);
 
 const handleListening = () =>
-  console.log(`✅ Server listening on port http://localhost:${PORT} 🔥`);
+  console.log(`✅ Server listening on http://localhost:${PORT} 🔥`);
 
 app.listen(PORT, handleListening);
 //2️⃣ Create PORT and callback.

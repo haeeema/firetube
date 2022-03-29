@@ -1,4 +1,4 @@
-export const trending = (req, res) => res.render("home", { pageTitle: "Home" });
+export const trending = (req, res) => res.render("home", { pageTitle: "HOME" });
 // ❗️export each, you can export one thing by <export default>.
 export const see = (req, res) => res.render("watch");
 export const edit = (req, res) => res.send("Edit");
