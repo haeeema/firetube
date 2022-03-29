@@ -1,4 +1,6 @@
 import "./db";
+import "./models/Video";
+// we don't use model now! import "Video" from "./models/Video"; XX
 
 import express from "express";
 //0️⃣ === const express = require("express");
