@@ -13,6 +13,13 @@ const videoSchema = new mongoose.Schema({
 });
 // 1️⃣ Make just shape!!
 
+videoSchema.static("formatHashtags", function (hashtags) {
+  return hashtags
+    .split(",")
+    .map((word) => (word.startsWith("#") ? word : `#${word}`));
+});
+
 const Video = mongoose.model("Video", videoSchema);
 // 2️⃣ Make model!! here!!
+
 export default Video;

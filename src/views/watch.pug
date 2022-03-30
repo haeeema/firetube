@@ -3,5 +3,9 @@ extends base.pug
 block content
     div
         p=video.description
+        each hashtag in video.hashtags
+            small  #{hashtag}
+        br
         small=video.createdAt 
+    hr
     a(href=`${video.id}/edit`) Edit Video &rarr;
