@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 const videoSchema = new mongoose.Schema({
   // 🔥 <new> when we want to create a new instance of a class.
-  title: { type: String, required: true },
-  description: { type: String, required: true },
+  title: { type: String, required: true, trim: true },
+  description: { type: String, required: true, trim: true },
   createdAt: { type: Date, required: true, default: Date.now },
-  hashtags: [{ type: String }],
+  hashtags: [{ type: String, trim: true }],
   meta: {
-    views: { type: Number, default: true, required: true },
-    rating: { type: Number, default: true, required: true },
+    views: { type: Number, default: 0, required: true },
+    rating: { type: Number, default: 0, required: true },
   },
 });
 // 1️⃣ Make just shape!!
