@@ -1,7 +1,3 @@
-import "./db";
-import "./models/Video";
-// we don't use model now! import "Video" from "./models/Video"; XX
-
 import express from "express";
 //0️⃣ === const express = require("express");
 import morgan from "morgan";
@@ -10,8 +6,6 @@ import globalRouter from "./routers/globalrouter";
 // import variable in router.js
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
-
-const PORT = 4000;
 
 const app = express();
 //1️⃣ A top level fuction exported by the express modules.
@@ -30,8 +24,5 @@ app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
 
-const handleListening = () =>
-  console.log(`✅ Server listening on http://localhost:${PORT} 🔥`);
-
-app.listen(PORT, handleListening);
-//2️⃣ Create PORT and callback.
+export default app;
+// Export connecting init.js
