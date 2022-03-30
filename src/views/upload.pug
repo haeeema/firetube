@@ -3,8 +3,7 @@ extends base.pug
 block content
     form(method="POST")
         if errorMessage
-            span ❌ #{errorMessage}
-            hr
+            h4 ❌ #{errorMessage}
         input(type="text", name="title", placeholder="Title", required)
         input(type="text", name="description", placeholder="Description", required)
         input(type="text", name="hashtags", placeholder="Hashtags, seperated by comma.", required)
