@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://127.0.0.1:27017/meetube");
+mongoose.connect("mongodb://127.0.0.1:27017/firetube");
 
 const db = mongoose.connection;
 

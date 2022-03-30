@@ -1,10 +1,10 @@
 {
-  "name": "meetube",
+  "name": "firetube",
   "version": "1.0.0",
   "description": "Youtube clone",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haeeema/meetube.git"
+    "url": "git+https://github.com/haeeema/firetube.git"
   },
   "scripts": {
     "dev": "nodemon --exec babel-node src/init.js"
@@ -12,9 +12,9 @@
   "author": "Hamin Park<haeeema@naver.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/haeeema/meetube/issues"
+    "url": "https://github.com/haeeema/firetube/issues"
   },
-  "homepage": "https://github.com/haeeema/meetube#readme",
+  "homepage": "https://github.com/haeeema/firetube#readme",
   "dependencies": {
     "express": "^4.17.3",
     "mongoose": "^6.2.9",

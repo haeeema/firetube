@@ -9,11 +9,20 @@ export const home = async (req, res) => {
 export const watch = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
+  if (!video) {
+    return res.render("404", { pageTitle: "Video not found" });
+  }
   return res.render("watch", { pageTitle: video.title, video });
 };
 
-export const edit = (req, res) => {
-  return res.render("edit", { pageTitle: "Edit Video" });
+export const getEdit = async (req, res) => {
+  const { id } = req.params;
+  const video = await Video.findById(id);
+  return res.render("edit", { pageTitle: "Edit Video", video });
+};
+
+export const postEdit = (req, res) => {
+  return res.send("post");
 };
 
 export const search = (req, res) => res.send("Search");
