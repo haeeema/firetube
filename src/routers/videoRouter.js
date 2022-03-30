@@ -1,9 +1,15 @@
 import express from "express";
-import { edit, see, upload, deleteVideo } from "../controllers/videoController";
+import {
+  getUpload,
+  postUpload,
+  edit,
+  see,
+  deleteVideo,
+} from "../controllers/videoController";
 
 const videoRouter = express.Router();
 
-videoRouter.get("/upload", upload);
+videoRouter.route("/upload").get(getUpload).post(postUpload);
 videoRouter.get("/:id(\\d+)", see);
 // Add URL Parameter, regular expression.
 videoRouter.get("/:id(\\d+)/edit", edit);
