@@ -4,6 +4,7 @@ import morgan from "morgan";
 // morgan: HTTP request logger middlewore for node.js.
 import session from "express-session";
 // for using session and cookie
+import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
 // import variable in router.js
 import videoRouter from "./routers/videoRouter";
@@ -30,6 +31,10 @@ app.use(
     secret: "hello",
     resave: true,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: "mongodb://127.0.0.1:27017/firetube",
+      // Create configuration that has URL of mongo db.
+    }),
   })
 );
 // Start remembering everybody that comes our website.
