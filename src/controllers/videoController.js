@@ -1,11 +1,13 @@
 import Video from "../models/Video";
 
+//----------------------------------------------------------------------------------------------------- HOME
 export const home = async (req, res) => {
   const videos = await Video.find({}).sort({ createdAt: "desc" });
   return res.render("home", { pageTitle: "HOME", videos });
 };
 // ❗️export each, you can export one thing by <export default>.
 
+//----------------------------------------------------------------------------------------------------- WATCH
 export const watch = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
@@ -15,6 +17,7 @@ export const watch = async (req, res) => {
   return res.render("watch", { pageTitle: video.title, video });
 };
 
+//----------------------------------------------------------------------------------------------------- EDIT
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
@@ -39,6 +42,7 @@ export const postEdit = async (req, res) => {
   return res.redirect(`/videos/${id}`);
 };
 
+//----------------------------------------------------------------------------------------------------- UPLOAD
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload video" });
 
@@ -52,7 +56,6 @@ export const postUpload = async (req, res) => {
     });
     return res.redirect("/");
   } catch (error) {
-    console.log(error);
     return res.status(400).render("upload", {
       pageTitle: "Upload video",
       errorMessage: error._message,
@@ -60,12 +63,14 @@ export const postUpload = async (req, res) => {
   }
 };
 
+//----------------------------------------------------------------------------------------------------- DELETE
 export const deleteVideo = async (req, res) => {
   const { id } = req.params;
   await Video.findByIdAndDelete(id);
   return res.redirect("/");
 };
 
+//----------------------------------------------------------------------------------------------------- SEARCH
 export const search = async (req, res) => {
   const { keyword } = req.query;
   let videos = [];
