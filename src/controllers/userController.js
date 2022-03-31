@@ -9,20 +9,20 @@ export const postJoin = async (req, res) => {
     req.body;
   const emailExists = await User.exists({ email });
   if (emailExists) {
-    return res.render("join", {
+    return res.status(400).render("join", {
       pageTitle: "Join",
       errorMessage: "This email aready used.",
     });
   }
   const usernameExists = await User.exists({ username });
   if (usernameExists) {
-    return res.render("join", {
+    return res.status(400).render("join", {
       pageTitle: "Join",
       errorMessage: "This username aready used.",
     });
   }
   if (password !== passwordConfirm) {
-    return res.render("join", {
+    return res.status(418).render("join", {
       pageTitle: "Join",
       errorMessage: "Password confirmation does not match.",
     });
