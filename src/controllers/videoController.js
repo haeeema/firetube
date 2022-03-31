@@ -27,8 +27,8 @@ export const getEdit = async (req, res) => {
 export const postEdit = async (req, res) => {
   const { id } = req.params;
   const { title, description, hashtags } = req.body;
-  const video = await Video.exists({ _id: id });
-  if (!video) {
+  const videoExists = await Video.exists({ _id: id });
+  if (!videoExists) {
     return res.render("404", { pageTitle: "Video not found" });
   }
   await Video.findByIdAndUpdate(id, {

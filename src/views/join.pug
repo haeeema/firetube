@@ -4,9 +4,10 @@ block content
     form(method="POST")
         if errorMessage
             h4 ❌ #{errorMessage}
-        input(type="email", name="email", placeholder="email", required)
-        input(type="text", name="username", placeholder="username", required)
-        input(type="password", name="password", placeholder="password", required)
-        input(type="text", name="name", placeholder="name", required)
-        input(type="text", name="location", placeholder="location", required)
+        input(type="email", name="email", placeholder="Email", required)
+        input(type="text", name="username", placeholder="Username", required)
+        input(type="password", name="password", placeholder="Password", required)
+        input(type="password", name="passwordConfirm", placeholder="Password again", required)
+        input(type="text", name="name", placeholder="Name", required)
+        input(type="text", name="location", placeholder="Location", required)
         input(type="submit", value="Join")
