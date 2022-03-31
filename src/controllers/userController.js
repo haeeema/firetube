@@ -68,6 +68,7 @@ export const postLogin = async (req, res) => {
   }
   req.session.loggedIn = true;
   req.session.user = usernameFindOne;
+  // ⭐️Initialize session
   return res.redirect("/");
 };
 

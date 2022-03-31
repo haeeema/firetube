@@ -28,11 +28,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   session({
-    secret: "hello",
-    resave: true,
-    saveUninitialized: true,
+    secret: process.env.COOKIE_SECRET,
+    resave: false,
+    saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: "mongodb://127.0.0.1:27017/firetube",
+      mongoUrl: process.env.DB_URL,
       // Create configuration that has URL of mongo db.
     }),
   })

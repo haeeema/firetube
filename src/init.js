@@ -1,3 +1,5 @@
+import "dotenv/config";
+// ❗️to read .env file
 import "./db";
 import "./models/Video";
 // We don't use model now! It is pre-load, 1. Compile 2. then use when we need
