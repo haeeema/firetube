@@ -12,11 +12,11 @@ html(lang="en")
                 li
                     a(href="http://localhost:4000/videos/upload", style="color: gray") upload
             form(method="GET", action="/search" style="display: flex; border: none; box-shadow: 0px 0px 0px white; padding: 0px")
-                input(type="text", name="keyword", placeholder="Search" style="margin-top: 20px")
-                input(type="submit", value="🔍", style="margin-top: 20px; background-color: white; border: none")
+                input(type="text", name="keyword", style="margin-top: 20px")
+                input(type="submit", value="search", style="margin-top: 20px; background-color: white; font-weight: bold; color: gray; text-decoration: none; cursor: pointer;")
             ul 
                 li 
-                    a(href="#", style="color: gray") join
+                    a(href="http://localhost:4000/join", style="color: gray") join
                 li 
                     a(href="#", style="color: gray") login
         header

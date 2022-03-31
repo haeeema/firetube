@@ -8,5 +8,4 @@ userRouter.get("/edit", edit);
 userRouter.get("/delete", remove);
 userRouter.get("/:id", see);
 
-
 export default userRouter;
