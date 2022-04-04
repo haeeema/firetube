@@ -14,20 +14,20 @@ export const postJoin = async (req, res) => {
   if (emailExists) {
     return res.status(400).render("join", {
       pageTitle: "Join",
-      errorMessage: "This email aready used.",
+      errorMessage: "This email aready used",
     });
   }
   const usernameExists = await User.exists({ username });
   if (usernameExists) {
     return res.status(400).render("join", {
       pageTitle: "Join",
-      errorMessage: "This username aready used.",
+      errorMessage: "This username aready used",
     });
   }
   if (password !== passwordConfirm) {
     return res.status(418).render("join", {
       pageTitle: "Join",
-      errorMessage: "Password confirmation does not match.",
+      errorMessage: "Password confirmation does not match",
     });
   }
   try {
@@ -57,7 +57,7 @@ export const postLogin = async (req, res) => {
   if (!usernameFindOne) {
     return res.status(400).render("login", {
       pageTitle: "Login",
-      errorMessage: "This username does not exist.",
+      errorMessage: "This username does not exist",
     });
   }
   const match = await bcrypt.compare(password, usernameFindOne.password);
@@ -174,7 +174,7 @@ export const postEdit = async (req, res) => {
     if (emailExists) {
       return res.status(400).render("edit-profile", {
         pageTitle: "Edit Profile",
-        errorMessage: "This email aready used.",
+        errorMessage: "This email aready used",
       });
     }
   }
@@ -183,7 +183,7 @@ export const postEdit = async (req, res) => {
     if (usernameExists) {
       return res.status(400).render("edit-profile", {
         pageTitle: "Edit Profile",
-        errorMessage: "This username aready used.",
+        errorMessage: "This username aready used",
       });
     }
   }
@@ -207,6 +207,43 @@ export const postEdit = async (req, res) => {
       errorMessage: error._message,
     });
   }
+};
+//----------------------------------------------------------------------------------------------------- CHANGE PASSWORD
+export const getChangePassword = (req, res) => {
+  if (req.session.user.socialOnly === true) {
+    return res.redirect("/");
+  }
+  return res.render("change-password", { pageTitle: "Change Password" });
+};
+
+export const postChangePassword = async (req, res) => {
+  const {
+    session: {
+      user: { _id, password },
+    },
+    body: { oldPassword, newPassword, newPasswordConfirm },
+  } = req;
+
+  const match = await bcrypt.compare(oldPassword, password);
+  if (!match) {
+    return res.status(400).render("change-password", {
+      pageTitle: "Change Password",
+      errorMessage: "Wrong password",
+    });
+  }
+  if (newPassword !== newPasswordConfirm) {
+    return res.status(400).render("change-password", {
+      pageTitle: "Change Password",
+      errorMessage: "New password confirmation does not match",
+    });
+  }
+  const user = await User.findById(_id);
+  user.password = newPassword;
+  await user.save();
+  // For using pre-save(hashing) middleware.
+  req.session.user.password = user.password;
+  // Update session
+  return res.redirect("/users/logout");
 };
 
 export const see = (req, res) => res.send("See User");
