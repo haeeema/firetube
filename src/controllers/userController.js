@@ -156,11 +156,57 @@ export const logout = (req, res) => {
   req.session.destroy();
   return res.redirect("/");
 };
-
-export const getEdit = (req, res) => {
+//----------------------------------------------------------------------------------------------------- EDIT PROFILE
+export const getEdit = (_, res) => {
   return res.render("edit-profile", { pageTitle: "Edit Profile" });
 };
 
-export const postEdit = (req, res) => res.send("Post");
+export const postEdit = async (req, res) => {
+  const {
+    session: {
+      user: { _id },
+    },
+    body: { name, email, username, location },
+  } = req;
+  //-----------------------------------------------------------------------------------------------------🔥🔥🔥 Challenge!! #8.3
+  if (email !== req.session.user.email) {
+    const emailExists = await User.exists({ email });
+    if (emailExists) {
+      return res.status(400).render("edit-profile", {
+        pageTitle: "Edit Profile",
+        errorMessage: "This email aready used.",
+      });
+    }
+  }
+  if (username !== req.session.user.username) {
+    const usernameExists = await User.exists({ username });
+    if (usernameExists) {
+      return res.status(400).render("edit-profile", {
+        pageTitle: "Edit Profile",
+        errorMessage: "This username aready used.",
+      });
+    }
+  }
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      _id,
+      {
+        name,
+        email,
+        username,
+        location,
+      },
+      { new: true }
+      // ⭐️ Option of findByIdAndUpdate, If you set <new: true>, findOneAndUpdate will instead give you the object after update was applied.
+    );
+    req.session.user = updatedUser;
+    return res.redirect("/users/edit");
+  } catch (error) {
+    return res.status(400).render("edit-profile", {
+      pageTitle: "Edit Profile",
+      errorMessage: error._message,
+    });
+  }
+};
 
 export const see = (req, res) => res.send("See User");
