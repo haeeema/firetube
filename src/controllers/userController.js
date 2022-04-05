@@ -164,9 +164,10 @@ export const getEdit = (_, res) => {
 export const postEdit = async (req, res) => {
   const {
     session: {
-      user: { _id },
+      user: { _id, avatarUrl },
     },
     body: { name, email, username, location },
+    file,
   } = req;
   //-----------------------------------------------------------------------------------------------------🔥🔥🔥 Challenge!! #8.3
   if (email !== req.session.user.email) {
@@ -191,9 +192,10 @@ export const postEdit = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(
       _id,
       {
-        name,
         email,
+        avatarUrl: file ? file.path : avatarUrl,
         username,
+        name,
         location,
       },
       { new: true }
@@ -223,7 +225,6 @@ export const postChangePassword = async (req, res) => {
     },
     body: { oldPassword, newPassword, newPasswordConfirm },
   } = req;
-
   const match = await bcrypt.compare(oldPassword, password);
   if (!match) {
     return res.status(400).render("change-password", {
