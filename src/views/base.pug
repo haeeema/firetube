@@ -22,12 +22,10 @@ html(lang="en")
                     li 
                         a(href="/login") login
                 else 
-                    li#sadfasdfasdfasdfasdf
-                        a(href="/users/edit") Edit Profile
                     li 
                         a(href="/users/logout") logout 
                     li
-                        a(href="/my-profile") #{loggedInUser.name} 
+                        a(href=`/users/${loggedInUser._id}`) #{loggedInUser.name} 
         header
             h1 🔥 #{pageTitle}
         main
