@@ -47,10 +47,12 @@ export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload video" });
 
 export const postUpload = async (req, res) => {
+  const { path } = req.file;
   const { title, description, hashtags } = req.body;
   try {
     await Video.create({
       title,
+      videoUrl: path,
       description,
       hashtags: Video.formatHashtags(hashtags),
     });

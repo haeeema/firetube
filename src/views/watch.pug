@@ -1,13 +1,14 @@
 extends base.pug
 
 block content
+    video(src="/" + video.videoUrl, controls)
     div
         p=video.description
         each hashtag in video.hashtags
             small  #{hashtag}
         br
         small=video.createdAt 
-    hr
+    br
     a(href=`${video.id}/edit`) Edit Video &rarr;
     br
     a(href=`${video.id}/delete`) Delete Video &rarr;

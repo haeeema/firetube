@@ -1,6 +1,8 @@
 import User from "../models/User";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
+import multer from "multer";
+import { MulterError } from "multer";
 
 //----------------------------------------------------------------------------------------------------- JOIN
 export const getJoin = (req, res) => {
