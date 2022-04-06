@@ -247,10 +247,10 @@ export const postChangePassword = async (req, res) => {
   // Update session
   return res.redirect("/users/logout");
 };
-
+//----------------------------------------------------------------------------------------------------- PROFILE
 export const profile = async (req, res) => {
   const { id } = req.params;
-  const user = await User.findById(id);
+  const user = await User.findById(id).populate("videos");
   if (!user) {
     return res.status(404).render("404", { pageTitle: "User not found" });
   }

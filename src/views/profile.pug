@@ -1,4 +1,5 @@
 extends base.pug
+include mixins/video
 
 block content
     form
@@ -11,4 +12,9 @@ block content
         h4=locatin
         if user.id === loggedInUser._id
             br
-            a(href="edit-profile") Edit Profile &rarr;
+            a(href="edit") Edit Profile &rarr;
+    each video in user.videos
+        +video(video)
+    else
+        li Sorry nothing found.
+        

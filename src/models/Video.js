@@ -11,6 +11,9 @@ const videoSchema = new mongoose.Schema({
     views: { type: Number, default: 0, required: true },
     rating: { type: Number, default: 0, required: true },
   },
+  owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
+  // ❗️ ObjectId is mongoose code.
+  // ❗️ <ref> which model is connected with.
 });
 // 1️⃣ Make just shape!!
 
