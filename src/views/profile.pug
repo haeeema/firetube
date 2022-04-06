@@ -3,7 +3,10 @@ include mixins/video
 
 block content
     form
-        img(src="/" + user.avatarUrl, width="100", height="100")
+        if (loggedInUser.socialOnly)
+            img(src=user.avatarUrl, width="100", height="100")
+        else    
+            img(src="/" + user.avatarUrl, width="100", height="100")
     br
     form
         h4=user.email 
