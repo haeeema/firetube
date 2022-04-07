@@ -43,6 +43,7 @@ app.use(localsMiddleware);
 // ❗️After session before router
 app.use("/uploads", express.static("uploads"));
 app.use("/images", express.static("src/images"));
+app.use("/static", express.static("assets"));
 // Static file serving
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);

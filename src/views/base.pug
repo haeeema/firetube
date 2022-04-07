@@ -4,6 +4,7 @@ html(lang="en")
         title #{pageTitle} | Firetube
         link(rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>")
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+        link(rel="stylesheet", href="/static/css/styles.css")
     body
         include partials/navbar.pug 
         header
@@ -11,3 +12,4 @@ html(lang="en")
         main
             block content
     include partials/footer.pug
+    script(src="/static/js/main.js")
