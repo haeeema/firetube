@@ -12,15 +12,15 @@ nav
     ul
         if !loggedIn 
             li 
-                a(href="/join") join
+                a(href="/join") join  
             li 
-                a(href="/login") login
+                a(href="/login") login 
             li
                 a(href="/login")
                     img(src="./images/anonymous.png")
         else
             li 
-                a(href="#") record
+                a(href="/videos/record") record
             li 
                 a(href="/users/logout") logout 
             li

@@ -3,7 +3,9 @@ import User from "../models/User";
 
 //----------------------------------------------------------------------------------------------------- HOME
 export const home = async (req, res) => {
-  const videos = await Video.find({}).sort({ createdAt: "desc" });
+  const videos = await Video.find({})
+    .sort({ createdAt: "desc" })
+    .populate("owner");
   return res.render("home", { pageTitle: "HOME", videos });
 };
 // ❗️export each, you can export one thing by <export default>.
@@ -114,4 +116,22 @@ export const search = async (req, res) => {
     });
   }
   return res.render("search", { pageTitle: "Search", videos });
+};
+//----------------------------------------------------------------------------------------------------- VIEW
+export const registerView = async (req, res) => {
+  const { id } = req.params;
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.sendStatus(404);
+  }
+  video.meta.views = video.meta.views + 1;
+  await video.save();
+  return res.sendStatus(200);
+};
+//----------------------------------------------------------------------------------------------------- RECORD
+export const getRecord = (req, res) =>
+  res.render("record", { pageTitle: "Record video" });
+
+export const postRecord = (req, res) => {
+  return res.send("postRecord");
 };

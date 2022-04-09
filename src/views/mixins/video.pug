@@ -3,8 +3,17 @@ mixin video(video)
         h4
             a(href=`/videos/${video.id}`, style="font-size: 20px; color: black")=video.title
         p=video.description
+        a(href="/users/" + video.owner.id)
+            if (video.owner.socialOnly)
+                img(src=video.owner.avatarUrl, width="50", height="50", style="border-radius: 70px")
+            else
+                img(src="/" + video.owner.avatarUrl, width="50", height="50", style="border-radius: 70px")
+            small Uploaded by #{video.owner.name}
+        br
         each hashtag in video.hashtags
             small  #{hashtag}
         br
         small=video.createdAt 
+        br
+        small #{video.meta.views} times
         hr 

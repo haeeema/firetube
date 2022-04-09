@@ -7,7 +7,7 @@ import {
 } from "../controllers/userController";
 import { home, search } from "../controllers/videoController";
 // Export each, opening object
-import { protectorMiddleware, publicOnlyMiddleware } from "../middlewares";
+import { publicOnlyMiddleware } from "../middlewares";
 
 const rootRouter = express.Router();
 // 0️⃣ Create rootRouter

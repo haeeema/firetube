@@ -6,6 +6,8 @@ import {
   postEdit,
   watch,
   deleteVideo,
+  getRecord,
+  postRecord,
 } from "../controllers/videoController";
 import { protectorMiddleware, multerVideoMiddleware } from "../middlewares";
 
@@ -24,5 +26,10 @@ videoRouter
   .all(protectorMiddleware)
   .get(getUpload)
   .post(multerVideoMiddleware.single("video"), postUpload);
+videoRouter
+  .route("/record")
+  .all(protectorMiddleware)
+  .get(getRecord)
+  .post(postRecord);
 
 export default videoRouter;

@@ -1,7 +1,8 @@
 extends base.pug
 
 block content
-    div#videoContainer
+    div#videoContainer(data-videoId=video._id)
+        //-How can we save custom data on HTML, data attribute.
         video(src="/" + video.videoUrl)
         div#videoControls.videoControls
             div.videoControls__play
@@ -22,13 +23,18 @@ block content
     div
         p=video.description
         a(href="/users/" + video.owner.id)
-            img(src="/" + video.owner.avatarUrl, width="50", height="50")
+            if (video.owner.socialOnly)
+                img(src=video.owner.avatarUrl, width="50", height="50", style="border-radius: 70px")
+            else
+                img(src="/" + video.owner.avatarUrl, width="50", height="50", style="border-radius: 70px")
             small Uploaded by #{video.owner.name}
         br
         each hashtag in video.hashtags
             small  #{hashtag}
         br
         small=video.createdAt
+        br
+        small #{video.meta.views} times
     if video.owner.id === loggedInUser._id
         br
         a(href=`${video.id}/edit`) Edit Video &rarr;

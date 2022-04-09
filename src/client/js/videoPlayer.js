@@ -17,7 +17,7 @@ let controlsMovementTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
 
-const handlePlayClick = (e) => {
+const handlePlayClick = (event) => {
   if (video.paused) {
     video.play();
   } else {
@@ -26,7 +26,7 @@ const handlePlayClick = (e) => {
   playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
 };
 
-const handleMuteClick = (e) => {
+const handleMuteClick = (event) => {
   if (video.muted) {
     video.muted = false;
   } else {
@@ -120,11 +120,21 @@ const handleVideoClick = (event) => {
   playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
 };
 
+const handleEnded = () => {
+  const { id } = videoContainer.dataset;
+  // Data from frontend(pug), data attribute.
+  fetch(`/api/videos/${id}/view`, {
+    method: "POST",
+  });
+  // Trying to find id in frontend.
+};
+
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadeddata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
+video.addEventListener("ended", handleEnded);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
 timeline.addEventListener("input", handleTimelineChange);
