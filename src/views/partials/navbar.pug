@@ -7,14 +7,20 @@ nav
                 a(href="/videos/upload") upload
     form(method="GET", action="/search")
         input(type="text", name="keyword")
-        input(type="submit", value="search")
+        button(type="submit")
+            i.fas.fa-magnifying-glass
     ul
         if !loggedIn 
             li 
                 a(href="/join") join
             li 
                 a(href="/login") login
-        else 
+            li
+                a(href="/login")
+                    img(src="./images/anonymous.png")
+        else
+            li 
+                a(href="#") record
             li 
                 a(href="/users/logout") logout 
             li

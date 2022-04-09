@@ -147,15 +147,106 @@ nav {
   z-index: 1000000;
   justify-content: space-between;
   display: flex;
+  align-items: center;
   box-shadow: rgba(0, 0, 0, 0.01) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 10px 30px 0px;
 }
 
 nav form {
   height: 50px;
+  flex-basis: 600px;
   display: flex;
+  align-items: center;
   border: none;
   box-shadow: none;
-  margin-top: 15px;
+}
+
+nav form input {
+  height: 30px;
+  border: none;
+  flex-basis: 500px;
+  outline: 1px solid #c5c5c5;
+}
+
+nav form button {
+  font-size: 16px;
+  color: #7e7e7e;
+  cursor: pointer;
+  border: none;
+  background-color: white;
+  margin: 5px;
+}
+
+nav ul {
+  display: flex;
+  flex-basis: 200px;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #7e7e7e;
+}
+
+nav ul li a img {
+  width: 30px;
+  height: 30px;
+  border-radius: 70px;
+}
+
+#videoContainer {
+  width: 100%;
+  position: relative;
+}
+#videoContainer video {
+  width: 100%;
+}
+#videoContainer .videoControls {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  align-items: center;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 10px;
+  width: 95%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr auto;
+  gap: 10px;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 10px;
+  left: 0;
+  box-sizing: border-box;
+}
+#videoContainer .videoControls.showing {
+  opacity: 1;
+}
+#videoContainer .videoControls .videoControls__play {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#videoContainer .videoControls .videoControls__play .videoControls__playBtn {
+  margin: 0px 15px;
+}
+#videoContainer .videoControls .videoControls__play .videoControls__time {
+  font-size: 12px;
+}
+#videoContainer .videoControls .videoControls__volume {
+  display: flex;
+  align-items: center;
+}
+#videoContainer .videoControls .videoControls__volume span {
+  margin-left: 10px;
+}
+#videoContainer .videoControls .videoControls__volume span i {
+  font-size: 20px;
 }
 
 header h1 {
@@ -175,5 +266,4 @@ body {
   word-spacing: 0px;
   background-color: #f9f9f9;
   color: black;
-  display: block;
 }
