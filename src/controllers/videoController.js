@@ -154,7 +154,33 @@ export const createComment = async (req, res) => {
     owner: user._id,
     video: id,
   });
-  video.comments.push(comment._id);
+
+  video.comments.push(comment.id);
   video.save();
   return res.status(201).json({ newCommentId: comment._id });
+};
+//-----------------------------------------------------------------------------------------------------🔥🔥🔥 Challenge!! #16.9
+export const deleteComment = async (req, res) => {
+  const { id } = req.params;
+  const {
+    user: { _id },
+  } = req.session;
+  const comment = await Comment.findById(id).populate("video");
+  if (String(comment.owner) !== _id) {
+    return res.status(403).redirect("/");
+  }
+  if (!comment) {
+    return res.sendStatus(404);
+  }
+  const videoId = comment.video._id;
+  const video = await Video.findById(videoId.toString());
+  video.comments = comment.video.comments.filter((comment) => {
+    if (comment.toString() !== id) {
+      return true;
+    }
+    return false;
+  });
+  video.save();
+  await Comment.findByIdAndDelete(id);
+  return res.sendStatus(201);
 };
