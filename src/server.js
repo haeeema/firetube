@@ -26,6 +26,9 @@ app.use(logger);
 // Global Router, allow you create "global middlewares" that work any URL.
 // ❗️ORDER: we use global middleware first and then use app.get
 app.use(express.urlencoded({ extended: true }));
+//app.use(express.text());
+// For receive text only.
+app.use(express.json());
 
 app.use(
   session({

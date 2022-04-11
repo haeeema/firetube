@@ -4,13 +4,13 @@ const videoSchema = new mongoose.Schema({
   // 🔥 <new> when we want to create a new instance of a class.
   title: { type: String, required: true, trim: true },
   videoUrl: { type: String, required: true },
-  thumbUrl: { type: String },
   description: { type: String, required: true, trim: true },
   createdAt: { type: Date, required: true, default: Date.now },
   hashtags: [{ type: String, trim: true }],
   meta: {
     views: { type: Number, default: 0, required: true },
   },
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
   owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
   // ❗️ ObjectId is mongoose code.
   // ❗️ <ref> which model is connected with.

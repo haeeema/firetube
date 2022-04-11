@@ -4,6 +4,7 @@ import "./db";
 import "./models/Video";
 // We don't use model now! It is pre-load, 1. Compile 2. then use when we need
 import "./models/User";
+import "./models/Comment";
 import app from "./server";
 
 const PORT = 4000;
