@@ -3,10 +3,7 @@ include mixins/video
 
 block content
     form.profileForm
-        if (user.socialOnly)
-            img(src=user.avatarUrl, width="100", height="100", style="border-radius: 70px")
-        else    
-            img(src="/" + user.avatarUrl, width="100", height="100", style="border-radius: 70px")
+        img(src=user.avatarUrl, width="100", height="100", style="border-radius: 70px")
         h4=user.email 
         h4=user.username 
         h4=locatin

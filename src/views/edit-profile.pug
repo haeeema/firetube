@@ -3,7 +3,7 @@ extends base.pug
 block content
     form(method="POST", enctype="multipart/form-data").avatarForm
         br
-        img(src="/" + loggedInUser.avatarUrl, width="100", height="100")
+        img(src=loggedInUser.avatarUrl, width="100", height="100")
         label(for="avatar") Upload a photo
         input(type="file", id="avatar", name="avatar", accept="image/*").upload
         input(type="submit", value="Edit").submit

@@ -25,7 +25,4 @@ nav
                 a(href="/users/logout") logout 
             li
                 a(href=`/users/${loggedInUser._id}`)
-                    if (loggedInUser.socialOnly)
-                        img(src=loggedInUser.avatarUrl, width="30", height="30", style="border-radius: 70px")
-                    else    
-                        img(src="/" + loggedInUser.avatarUrl, width="30", height="30", style="border-radius: 70px") 
+                    img(src=loggedInUser.avatarUrl, width="30", height="30", style="border-radius: 70px")
