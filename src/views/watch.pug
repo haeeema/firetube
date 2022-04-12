@@ -22,7 +22,7 @@ block content
                     i.fas.fa-expand
     section.watch__description
         h1=video.description
-        a(href="/users/" + video.owner.id)
+        a(href="/users/" + video.owner.id).profile
             if (video.owner.socialOnly)
                 img(src=video.owner.avatarUrl, width="50", height="50", style="border-radius: 70px")
             else
@@ -34,9 +34,9 @@ block content
         small #{video.meta.views} times
         if video.owner.id === loggedInUser._id
             br
-            a(href=`${video.id}/edit`) Edit Video &rarr;
+            a(href=`${video.id}/edit`).outBtn Edit Video &rarr;
             br
-            a(href=`${video.id}/delete`) Delete Video &rarr;
+            a(href=`${video.id}/delete`).outBtn Delete Video &rarr;
     if loggedIn
         section.watch__add-comments    
             div.video__add-comments 

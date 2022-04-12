@@ -656,6 +656,7 @@ body main .content {
   justify-content: center;
   height: 180px;
   width: 700px;
+  margin: 50px;
 }
 .watch__description h1 {
   font-size: 20px;
@@ -663,7 +664,7 @@ body main .content {
   color: black;
   margin-bottom: 10px;
 }
-.watch__description a {
+.watch__description .profile {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -671,7 +672,7 @@ body main .content {
   color: black;
   margin-bottom: 10px;
 }
-.watch__description a h2 {
+.watch__description .profile h2 {
   margin-left: 10px;
 }
 .watch__description small {
