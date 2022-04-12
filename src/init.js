@@ -1,3 +1,4 @@
+import "regenerator-runtime";
 import "dotenv/config";
 // ❗️to read .env file
 import "./db";
