@@ -33,7 +33,6 @@ export const postJoin = async (req, res) => {
   try {
     await User.create({
       email,
-      avatarUrl: "/images/anonymous.png",
       username,
       password,
       name,
