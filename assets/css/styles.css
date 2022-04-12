@@ -285,6 +285,10 @@ footer {
 .mixins .profile h2 {
   margin-left: 10px;
 }
+.mixins .hashtags {
+  display: inline;
+  margin-bottom: 5px;
+}
 .mixins small {
   font-size: 14px;
   color: #949494;
@@ -678,6 +682,10 @@ body main .content {
 .watch__description small {
   font-size: 12px;
   color: #949494;
+  margin-bottom: 5px;
+}
+.watch__description .hashtags {
+  display: inline;
   margin-bottom: 5px;
 }
 
