@@ -23,13 +23,11 @@ block content
     section.watch__description
         h1=video.description
         a(href="/users/" + video.owner.id).profile
-            if (video.owner.socialOnly)
-                img(src=video.owner.avatarUrl, width="50", height="50", style="border-radius: 70px")
-            else
-                img(src="/" + video.owner.avatarUrl, width="50", height="50", style="border-radius: 70px")
+            img(src=video.owner.avatarUrl, width="50", height="50", style="border-radius: 70px")
             h2=video.owner.name
-        each hashtag in video.hashtags
-            small  #{hashtag}
+        div.hashtags
+            each hashtag in video.hashtags
+                small  #{hashtag}
         small=video.createdAt
         small #{video.meta.views} times
         if video.owner.id === loggedInUser._id
