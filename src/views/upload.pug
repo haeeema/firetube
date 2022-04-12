@@ -1,13 +1,14 @@
 extends base.pug
 
 block content
-    form(method="POST", enctype="multipart/form-data")
+    form(method="POST", enctype="multipart/form-data").uploadForm
+        br
         if errorMessage
             h4 ❌ #{errorMessage}
-        label(for="video") Video file
-        input(type="file", name="video", accept="video/*", id="video", required)
+        label(for="video").label Video File
+        input(type="file", name="video", accept="video/*", id="video", required).upload
         input(type="text", name="title", placeholder="Title", required)
         input(type="text", name="description", placeholder="Description", required)
         input(type="text", name="hashtags", placeholder="Hashtags, seperated by comma.", required)
-        input(type="submit", value="Upload Video")
+        input(type="submit", value="Upload Video").submit
     

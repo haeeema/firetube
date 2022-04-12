@@ -1,0 +1,49 @@
+.mixins {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  height: 180px;
+  width: 1000px;
+
+  background-color: white;
+  color: black;
+
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid $input;
+  border-radius: 5px;
+
+  margin-bottom: 20px;
+  padding: 20px 0px 0px 20px;
+  .title {
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 10px;
+    span {
+      font-size: 18px;
+      font-weight: normal;
+      color: $gray;
+      margin-left: 10px;
+    }
+  }
+  .profile {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 10px;
+    h2 {
+      margin-left: 10px;
+    }
+  }
+  small {
+    font-size: 14px;
+    color: $gray;
+    margin-bottom: 5px;
+  }
+}

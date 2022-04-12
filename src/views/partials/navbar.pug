@@ -1,11 +1,11 @@
 nav
     ul 
         li 
-            a(href="/", style="color: black; font-size: 20px") 🔥 Firetube
+            a(href="/").title 🔥 Firetube
         if loggedIn
             li
                 a(href="/videos/upload") upload
-    form(method="GET", action="/search")
+    form(method="GET", action="/search").searchForm
         input(type="text", name="keyword")
         button(type="submit")
             i.fas.fa-magnifying-glass
@@ -17,7 +17,7 @@ nav
                 a(href="/login") login 
             li
                 a(href="/login")
-                    img(src="/images/anonymous.png")
+                    img(src="/images/anonymous.png", width="30", height="30", style="border-radius: 70px")
         else
             li 
                 a(href="/videos/record") record
@@ -28,4 +28,4 @@ nav
                     if (loggedInUser.socialOnly)
                         img(src=loggedInUser.avatarUrl, width="30", height="30", style="border-radius: 70px")
                     else    
-                        img(src="/" + loggedInUser.avatarUrl, width="30", height="30") 
+                        img(src="/" + loggedInUser.avatarUrl, width="30", height="30", style="border-radius: 70px") 

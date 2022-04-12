@@ -1,7 +1,6 @@
 nav {
   height: 60px;
 
-  font-weight: 700;
   background-color: #ffffff;
 
   position: fixed;
@@ -10,61 +9,52 @@ nav {
   left: 0px;
   z-index: 1000000;
 
-  justify-content: space-between;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   box-shadow: rgba(0, 0, 0, 0.01) 0px 1px 1px 0px,
     rgba(0, 0, 0, 0.08) 0px 10px 30px 0px;
-}
-
-nav form {
-  height: 50px;
-
-  flex-basis: 600px;
-  display: flex;
-  align-items: center;
-
-  border: none;
-  box-shadow: none;
-}
-
-nav form input {
-  height: 30px;
-  border: none;
-  flex-basis: 500px;
-  outline: 1px solid $input;
-}
-
-nav form button {
-  font-size: 16px;
-  color: $gray;
-
-  cursor: pointer;
-
-  border: none;
-  background-color: white;
-  margin: 5px;
-}
-
-nav ul {
-  display: flex;
-  flex-basis: 200px;
-
-  align-items: center;
-}
-
-nav ul li {
-  margin: 10px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: $gray;
-}
-
-nav ul li a img {
-  width: 30px;
-  height: 30px;
-  border-radius: 70px;
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      margin: 10px;
+      a {
+        font-size: 16px;
+        color: $gray;
+        text-decoration: none;
+        &:hover {
+          color: $grayHover;
+        }
+      }
+      .title {
+        font-size: 20px;
+        color: black;
+        font-weight: 700;
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+  .searchForm {
+    input {
+      height: 30px;
+      width: 480px;
+      border: none;
+      outline: 1px solid $input;
+    }
+    button {
+      font-size: 16px;
+      color: $gray;
+      cursor: pointer;
+      border: none;
+      background-color: white;
+      margin: 5px;
+      &:hover {
+        color: $grayHover;
+      }
+    }
+  }
 }

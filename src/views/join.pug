@@ -1,7 +1,8 @@
 extends base.pug
 
 block content
-    form(method="POST")
+    form(method="POST").joinForm
+        br
         if errorMessage
             h4 ❌ #{errorMessage}
         input(type="email", name="email", placeholder="Email", required)
@@ -10,7 +11,8 @@ block content
         input(type="password", name="passwordConfirm", placeholder="Password again", required)
         input(type="text", name="name", placeholder="Name", required)
         input(type="text", name="location", placeholder="Location", required)
-        input(type="submit", value="Join") 
+        input(type="submit", value="Join").submit
     br
     span Already have an account? 
-    a(href="/login") login &rarr;
+    br
+    a(href="/login").outBtn login &rarr;

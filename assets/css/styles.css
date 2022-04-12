@@ -1,10 +1,6 @@
 /*!**********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/styles.scss ***!
   \**********************************************************************************************************************/
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 html,
 body,
 div,
@@ -138,67 +134,60 @@ table {
 
 nav {
   height: 60px;
-  font-weight: 700;
   background-color: #ffffff;
   position: fixed;
   top: 0px;
   right: 0px;
   left: 0px;
   z-index: 1000000;
-  justify-content: space-between;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.01) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 10px 30px 0px;
 }
-
-nav form {
-  height: 50px;
-  flex-basis: 600px;
+nav ul {
   display: flex;
   align-items: center;
-  border: none;
-  box-shadow: none;
 }
-
-nav form input {
-  height: 30px;
-  border: none;
-  flex-basis: 500px;
-  outline: 1px solid #c5c5c5;
+nav ul li {
+  margin: 10px;
 }
-
-nav form button {
+nav ul li a {
   font-size: 16px;
-  color: #7e7e7e;
+  color: #949494;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  color: #6e6e6e;
+}
+nav ul li .title {
+  font-size: 20px;
+  color: black;
+  font-weight: 700;
+}
+nav ul li .title:hover {
+  color: black;
+}
+nav .searchForm input {
+  height: 30px;
+  width: 480px;
+  border: none;
+  outline: 1px solid #e9e9e9;
+}
+nav .searchForm button {
+  font-size: 16px;
+  color: #949494;
   cursor: pointer;
   border: none;
   background-color: white;
   margin: 5px;
 }
-
-nav ul {
-  display: flex;
-  flex-basis: 200px;
-  align-items: center;
-}
-
-nav ul li {
-  margin: 10px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #7e7e7e;
-}
-
-nav ul li a img {
-  width: 30px;
-  height: 30px;
-  border-radius: 70px;
+nav .searchForm button:hover {
+  color: #6e6e6e;
 }
 
 footer {
-  color: #7e7e7e;
+  color: #949494;
   font-size: 10px;
   padding: 50px 15px;
   text-align: center;
@@ -256,22 +245,481 @@ footer {
   font-size: 20px;
 }
 
-header h1 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 50px;
-  margin-bottom: 50px;
+.mixins {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 180px;
+  width: 1000px;
+  background-color: white;
+  color: black;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 20px 0px 0px 20px;
 }
-
-a {
-  color: inherit;
+.mixins .title {
+  font-size: 25px;
+  font-weight: 700;
   text-decoration: none;
+  color: black;
+  margin-bottom: 10px;
+}
+.mixins .title span {
+  font-size: 18px;
+  font-weight: normal;
+  color: #949494;
+  margin-left: 10px;
+}
+.mixins .profile {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 10px;
+}
+.mixins .profile h2 {
+  margin-left: 10px;
+}
+.mixins small {
+  font-size: 14px;
+  color: #949494;
+  margin-bottom: 5px;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  text-decoration: none solid rgb(0, 0, 0);
-  word-spacing: 0px;
   background-color: #f9f9f9;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+}
+body main .pageTitle {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 100px;
+}
+body main .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.uploadForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
   color: black;
+  width: 380px;
+  height: 330px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+.uploadForm input {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+  padding: 6px 13px 6px 13px;
+}
+.uploadForm .label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 330px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+  padding: 6px 13px 6px 13px;
+}
+.uploadForm .label:hover {
+  background-color: #c7c7c7;
+}
+.uploadForm .submit {
+  cursor: pointer;
+  background-color: #e9e9e9;
+  padding: 6px 13px 6px 13px;
+}
+.uploadForm .submit:hover {
+  background-color: #c7c7c7;
+}
+.uploadForm .upload {
+  display: none;
+}
+
+.joinForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
+  color: black;
+  width: 380px;
+  height: 420px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+.joinForm input {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 15px;
+  padding: 6px 13px 6px 13px;
+}
+.joinForm .submit {
+  cursor: pointer;
+  background-color: #e9e9e9;
+  padding: 6px 13px 6px 13px;
+}
+.joinForm .submit:hover {
+  background-color: #c7c7c7;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
+  color: black;
+  width: 380px;
+  height: 250px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+.loginForm input {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 15px;
+  padding: 6px 13px 6px 13px;
+}
+.loginForm .submit {
+  cursor: pointer;
+  background-color: #e9e9e9;
+  padding: 6px 13px 6px 13px;
+}
+.loginForm .submit:hover {
+  background-color: #c7c7c7;
+}
+.loginForm a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 330px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #374151;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+  padding: 6px 13px 6px 13px;
+}
+.loginForm a:hover {
+  background-color: #c7c7c7;
+}
+
+.profileForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
+  color: black;
+  width: 380px;
+  height: 270px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.profileForm img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.profileForm h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.videoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
+  color: black;
+  width: 700px;
+  height: 580px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+.videoDiv video {
+  margin-bottom: 17px;
+}
+.videoDiv button {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 15px;
+  padding: 6px 13px 6px 13px;
+}
+
+.avatarForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
+  color: black;
+  width: 380px;
+  height: 240px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+.avatarForm img {
+  margin-bottom: 20px;
+}
+.avatarForm label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 330px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+  padding: 6px 13px 6px 13px;
+}
+.avatarForm label:hover {
+  background-color: #c7c7c7;
+}
+.avatarForm .upload {
+  display: none;
+}
+.avatarForm .submit {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+  padding: 6px 13px 6px 13px;
+  cursor: pointer;
+  background-color: #e9e9e9;
+}
+.avatarForm .submit:hover {
+  background-color: #c7c7c7;
+}
+
+.profileForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
+  color: black;
+  width: 380px;
+  height: 270px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+.profileForm input {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+  padding: 6px 13px 6px 13px;
+}
+
+.passwordForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
+  color: black;
+  width: 380px;
+  height: 250px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+.passwordForm input {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 15px;
+  padding: 6px 13px 6px 13px;
+}
+.passwordForm .submit {
+  cursor: pointer;
+  background-color: #e9e9e9;
+  padding: 6px 13px 6px 13px;
+}
+.passwordForm .submit:hover {
+  background-color: #c7c7c7;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
+  color: black;
+  width: 380px;
+  height: 250px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+.editForm input {
+  width: 330px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+  margin-bottom: 15px;
+  padding: 6px 13px 6px 13px;
+}
+.editForm .submit {
+  cursor: pointer;
+  background-color: #e9e9e9;
+  padding: 6px 13px 6px 13px;
+}
+.editForm .submit:hover {
+  background-color: #c7c7c7;
+}
+
+.watch__description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 180px;
+  width: 700px;
+}
+.watch__description h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 10px;
+}
+.watch__description a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 10px;
+}
+.watch__description a h2 {
+  margin-left: 10px;
+}
+.watch__description small {
+  font-size: 12px;
+  color: #949494;
+  margin-bottom: 5px;
+}
+
+.watch__add-comments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none solid rgb(0, 0, 0);
+  text-align: left;
+  background-color: white;
+  color: black;
+  width: 1000px;
+  height: 70px;
+  box-shadow: rgb(244, 244, 244) 2px 2px 10px 0px;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+.watch__add-comments .video__add-comments form textarea {
+  resize: none;
+  width: 800px;
+  height: 25px;
+  border: none;
+  border-bottom: 1px solid #949494;
+  margin-top: 15px;
+}
+.watch__add-comments .video__add-comments form textarea:focus {
+  outline: none;
+}
+.watch__add-comments button {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  background-color: #e9e9e9;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #e9e9e9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.outBtn {
+  text-decoration: none;
+  font-weight: 700;
 }
