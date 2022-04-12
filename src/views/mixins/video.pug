@@ -2,7 +2,7 @@ mixin video(video)
     div.mixins
         a(href=`/videos/${video.id}`).title=video.title
             span=video.description
-        a(href="/users/" + string(video.owner.id)).profile
+        a(href="/users/" + video.owner.id).profile
             img(src=video.owner.avatarUrl, width="50", height="50", style="border-radius: 70px")
             h2=video.owner.name
         div.hashtags
